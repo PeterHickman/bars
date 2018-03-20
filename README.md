@@ -1,7 +1,8 @@
 # bars
 
-From a csv file produce a graph 
+From a csv file produce a graph. It's rather basic right now and assumes that the data is only two values per line. The first is the key, the second the value and that the values will be greater than zero
 
+Changes will be made :)
 
 ## Example graph
 
