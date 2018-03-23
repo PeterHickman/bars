@@ -8,7 +8,7 @@
 #
 # width is optional and defaults to 70
 
-VALID_FLAGS = %w(file key value width)
+VALID_FLAGS = %w[file key value width].frreze
 
 def opts(list)
   data = {}
@@ -16,7 +16,7 @@ def opts(list)
 
   while list.any?
     item = list.shift
-    if item.index('--') == 0
+    if item.index('--').zero?
       k = item[2..-1].downcase
 
       raise "Unknown option #{item}" unless VALID_FLAGS.include?(k)
@@ -29,7 +29,7 @@ def opts(list)
     end
   end
 
-  return data, new_list
+  [data, new_list]
 end
 
 def int(flags, key, default = nil)
@@ -43,11 +43,9 @@ def int(flags, key, default = nil)
 end
 
 def str(flags, key, name)
-  if flags.key?(key)
-    flags[key]
-  else
-    raise "Required option --#{key} <#{name}> missing"
-  end
+  return flags[key] if flags.key?(key)
+
+  raise "Required option --#{key} <#{name}> missing"
 end
 
 flags, the_rest = opts(ARGV)
@@ -57,9 +55,7 @@ key      = int(flags, 'key')
 value    = int(flags, 'value')
 width    = int(flags, 'width', 70)
 
-if the_rest.any?
-  raise "Superfluous extra arguments #{the_rest.inspect}"
-end
+raise "Superfluous extra arguments #{the_rest.inspect}" if the_rest.any?
 
 data = {}
 
