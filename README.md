@@ -6,7 +6,7 @@ Changes will be made :)
 
 ## Example graph
 
-Running `./example > data.csv` will produce some example data. `./bars.rb data.csv` will produce some output like this
+Running `./example > data.csv` will produce some example data. `./bars.rb --file data.csv --key 0 --value 1` will produce some output like this
 
 ```
  15 : (       1) *
