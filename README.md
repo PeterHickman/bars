@@ -163,3 +163,5 @@ Running `./example > data.csv` will produce some example data. `./bars.rb --file
 
 0. Handle negative values
 0. Handle data coming from `stdin`
+0. Give usage when no parameters are given
+
