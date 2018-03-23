@@ -159,3 +159,7 @@ Running `./example > data.csv` will produce some example data. `./bars.rb --file
 162 : (       1) *
 ```
 
+## To do
+
+0. Handle negative values
+0. Handle data coming from `stdin`
