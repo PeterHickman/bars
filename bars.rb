@@ -8,6 +8,8 @@
 #
 # width is optional and defaults to 70
 
+VALID_FLAGS = %w(file key value width)
+
 def opts(list)
   data = {}
   new_list = []
@@ -16,9 +18,11 @@ def opts(list)
     item = list.shift
     if item.index('--') == 0
       k = item[2..-1].downcase
-      unless list.any?
-        raise "No data following the #{item} option"
-      end
+
+      raise "Unknown option #{item}" unless VALID_FLAGS.include?(k)
+
+      raise "No data following the #{item} option" unless list.any?
+
       data[k] = list.shift
     else
       new_list << item
