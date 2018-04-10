@@ -8,7 +8,7 @@
 #
 # width is optional and defaults to 70
 
-VALID_FLAGS = %w[file key value width].frreze
+VALID_FLAGS = %w[file key value width].freeze
 
 def opts(list)
   data = {}
